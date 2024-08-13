@@ -1,6 +1,7 @@
 package org.atrinil.api.baserequestspec;
 
 import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
 import org.atrinil.api.config.ApiConfigFactory;
 
@@ -11,6 +12,7 @@ public final class BaseRequestSpec {
 
     public static RequestSpecification getBaseReqSpec() {
         return RestAssured.given()
+                .contentType(ContentType.JSON)
                 .baseUri(BASE_URL)
                 .log()
                 .all();
