@@ -18,7 +18,6 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <hamcrest.version>3.0</hamcrest.version>
     </properties>
 
     <dependencies>
@@ -38,11 +37,18 @@
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest</artifactId>
-            <version>${hamcrest.version}</version>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
             <artifactId>assertj-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
         </dependency>
 
 
