@@ -18,4 +18,7 @@ public interface ApiConfig extends Config {
 
     @Key("get.user.list")
     String getUserListEndpoint();
+
+    @Key("create.user")
+    String createUserEndpoint();
 }
