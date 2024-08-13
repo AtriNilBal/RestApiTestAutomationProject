@@ -4,6 +4,7 @@ import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.atrinil.api.baserequestspec.BaseRequestSpec;
 import org.atrinil.api.config.ApiConfigFactory;
+import org.atrinil.api.reqresrequest.ReqRes;
 import org.atrinil.api.utils.asserwrapper.ResponseAssert;
 import org.testng.annotations.Test;
 
@@ -17,10 +18,7 @@ public class ReqResTests {
 
     @Test
     public void getCallTestAndValidateKeyInline() {//print response and inline validation of a response field
-        BaseRequestSpec.getBaseReqSpec()
-                .when()
-                .get(GET_SINGLE_USER_ENDPOINT)
-                .prettyPeek()
+                ReqRes.getSingleUser()
                 .then()
                 .statusCode(200)
                 .body("data.first_name", equalTo("Janet"));
@@ -29,9 +27,7 @@ public class ReqResTests {
     @Test
     public void getCallTestAndValidateUsingCustomAssertion() {//print response and inline validation of a response field
 
-        Response response = BaseRequestSpec.getBaseReqSpec()
-                .when()
-                .get(GET_SINGLE_USER_ENDPOINT)
+        Response response = ReqRes.getSingleUser()
                 .prettyPeek()
                 .then()
                 .extract().response();
@@ -50,9 +46,7 @@ public class ReqResTests {
                 .getString("data.email")
                 .contentEquals("janet.weaver@reqres.in");
 
-        Response response = BaseRequestSpec.getBaseReqSpec()
-                .when()
-                .get(GET_SINGLE_USER_ENDPOINT)
+        Response response = ReqRes.getSingleUser()
                 .prettyPeek()
                 .then()
                 .extract().response();
@@ -63,6 +57,7 @@ public class ReqResTests {
                 .assertAll();
 
     }
+
 
 
 }
