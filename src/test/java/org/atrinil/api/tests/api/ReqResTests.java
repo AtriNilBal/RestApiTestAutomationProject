@@ -1,7 +1,10 @@
-package org.atrinil.api.tests.rest;
+package org.atrinil.api.tests.api;
 
 import io.restassured.response.Response;
+import org.assertj.core.api.Assertions;
 import org.atrinil.api.reqresservice.ReqRes;
+import org.atrinil.api.reqresservice.pojo.UserDetails;
+import org.atrinil.api.tests.api.testdata.UserTestData;
 import org.atrinil.api.utils.asserwrapper.ResponseAssert;
 import org.testng.annotations.Test;
 
@@ -57,6 +60,17 @@ public class ReqResTests {
     public void getUserListAndValidate() {
         ReqRes.getUserList("2")
                 .prettyPrint();
+    }
+
+    @Test
+    public void createUser() {
+        UserDetails userDetails = UserTestData.getUserDetails();
+        System.out.println(userDetails);
+        int statusCode = ReqRes.createUser(userDetails)
+                .prettyPeek()
+                .statusCode();
+        Assertions.assertThat(statusCode)
+                .isEqualTo(201);
     }
 
 }
