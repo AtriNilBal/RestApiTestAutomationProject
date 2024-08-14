@@ -1,6 +1,7 @@
 package org.atrinil.api.reqresservice.pojo;
 
 import lombok.Data;
+import lombok.Setter;
 import lombok.experimental.Accessors;
 
 @Accessors(chain=true)
