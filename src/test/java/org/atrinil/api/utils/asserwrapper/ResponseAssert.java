@@ -46,7 +46,7 @@ public class ResponseAssert extends AbstractAssert<ResponseAssert, Response> {
         return this;
     }
 
-    public ResponseAssert checkPredicate(Predicate<Response> predicate) {
+    public ResponseAssert checkKeyHasValue(Predicate<Response> predicate) {
         SOFT_ASSERTIONS.assertThat(predicate)
                 .accepts(actual);
         return this;
